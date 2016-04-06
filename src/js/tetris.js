@@ -4,42 +4,36 @@
 
 $(function() {
     var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
-    document.getElementById("tetris-canvas").appendChild(renderer.view);
-//document.body.appendChild(renderer.view);
+    document.body.appendChild(renderer.view);
 
 // create the root of the scene graph
     var stage = new PIXI.Container();
 
-    var container = new PIXI.Container();
+// create a texture from an image path
+    var texture = PIXI.Texture.fromImage('src/img/block.png');
 
-    stage.addChild(container);
+// create a new Sprite using the texture
+    var bunny = new PIXI.Sprite(texture);
 
-    for (var j = 0; j < 5; j++) {
+// center the sprite's anchor point
+    bunny.anchor.x = 0.5;
+    bunny.anchor.y = 0.5;
 
-        for (var i = 0; i < 5; i++) {
-            var bunny = PIXI.Sprite.fromImage('src/img/block.png');
-            bunny.x = 40 * i;
-            bunny.y = 40 * j;
-            container.addChild(bunny);
-        };
-    };
-    /*
-     * All the bunnies are added to the container with the addChild method
-     * when you do this, all the bunnies become children of the container, and when a container moves,
-     * so do all its children.
-     * This gives you a lot of flexibility and makes it easier to position elements on the screen
-     */
-    container.x = 100;
-    container.y = 60;
+// move the sprite to the center of the screen
+    bunny.position.x = 200;
+    bunny.position.y = 150;
+
+    stage.addChild(bunny);
 
 // start animating
     animate();
-
     function animate() {
-
         requestAnimationFrame(animate);
 
-        // render the root container
+        // just for fun, let's rotate mr rabbit a little
+        bunny.rotation += 0.1;
+
+        // render the container
         renderer.render(stage);
     }
 });
