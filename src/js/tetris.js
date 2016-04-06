@@ -17,7 +17,7 @@ $(function() {
     for (var j = 0; j < 5; j++) {
 
         for (var i = 0; i < 5; i++) {
-            var bunny = PIXI.Sprite.fromImage('_assets/basics/bunny.png');
+            var bunny = PIXI.Sprite.fromImage('../img/block.png');
             bunny.x = 40 * i;
             bunny.y = 40 * j;
             container.addChild(bunny);
