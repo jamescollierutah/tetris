@@ -101,7 +101,14 @@ $(function () {
 
     }
 
+    var clockSpeed = 800;
     function clockTick() {
+
+        //increase game speed
+        if (clockSpeed > 100) {
+            clockSpeed -= clockSpeed/100
+        }
+
         if (!game.checkActive()) {
             // set all blocks as inactive
             game.setAllBlocksInactive();
@@ -114,7 +121,7 @@ $(function () {
         }
         drawBlocks(game.getSlots());
         if (!game.isGameover) {
-            setTimeout(clockTick, 100);
+            setTimeout(clockTick, clockSpeed);
         } else {
             alert("GAME OVER!");
         }
