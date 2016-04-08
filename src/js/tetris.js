@@ -318,7 +318,38 @@ class GameBoard {
         }
 
         if (pieceType === "l") {
-
+            var currentBlock;
+            for (var i = this.slots.length-1; i >= 0; i--) {
+                for (var j = this.slots[i].length-1; j >= 0; j--) {
+                    currentBlock = this.slots[i][j].getSlottedBlock();
+                    if (currentBlock !== null && currentBlock.isActive()) {
+                        this.slots[i][j].setSlottedBlock(null);
+                    }
+                }
+            }
+            if (this.rotation === 0) {
+                this.putBlock(this.activeCenterX-1,this.activeCenterY-1,new Block("l"));
+                this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("l"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("l"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("l"));
+            } else if (this.rotation === 1) {
+                this.putBlock(this.activeCenterX+1,this.activeCenterY-1,new Block("l"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("l"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY+1,new Block("l"));
+                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("l"));
+            } else if (this.rotation === 2) {
+                this.putBlock(this.activeCenterX-1,this.activeCenterY,new Block("l"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("l"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("l"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY+1,new Block("l"));
+            } else if (this.rotation === 3) {
+                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("l"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("l"));
+                this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("l"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY-1,new Block("l"));
+            }
+            this.rotation--;
+            this.normalizeRotation();
         } else if (pieceType === "j") {
             var currentBlock;
             for (var i = this.slots.length-1; i >= 0; i--) {
@@ -352,7 +383,6 @@ class GameBoard {
             }
             this.rotation--;
             this.normalizeRotation();
-
         } else if (pieceType === "i") {
             var currentBlock;
             for (var i = this.slots.length-1; i >= 0; i--) {
@@ -377,7 +407,38 @@ class GameBoard {
             this.rotation--;
             this.normalizeRotation();
         } else if (pieceType === "t") {
-
+            var currentBlock;
+            for (var i = this.slots.length-1; i >= 0; i--) {
+                for (var j = this.slots[i].length-1; j >= 0; j--) {
+                    currentBlock = this.slots[i][j].getSlottedBlock();
+                    if (currentBlock !== null && currentBlock.isActive()) {
+                        this.slots[i][j].setSlottedBlock(null);
+                    }
+                }
+            }
+            if (this.rotation === 0) {
+                this.putBlock(this.activeCenterX-1,this.activeCenterY,new Block("t"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("t"));
+                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("t"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("t"));
+            } else if (this.rotation === 1) {
+                this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("t"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("t"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("t"));
+                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("t"));
+            } else if (this.rotation === 2) {
+                this.putBlock(this.activeCenterX-1,this.activeCenterY,new Block("t"));
+                this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("t"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("t"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("t"));
+            } else if (this.rotation === 3) {
+                this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("t"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("t"));
+                this.putBlock(this.activeCenterX-1,this.activeCenterY,new Block("t"));
+                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("t"));
+            }
+            this.rotation--;
+            this.normalizeRotation();
         } else if (pieceType === "s") {
             var currentBlock;
             for (var i = this.slots.length-1; i >= 0; i--) {
