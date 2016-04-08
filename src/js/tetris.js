@@ -354,7 +354,9 @@ class GameBoard {
     }
 
     rotateRight() {
-
+        if (this.checkActive()) {
+            this.moveActive();
+        }
     }
 
     checkActive() {
