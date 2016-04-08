@@ -207,13 +207,13 @@ class GameBoard {
         this.activeCenterX = 0;
         this.activeCenterY = 0;
         this.rotation = 0;
+        this.drawBlocks = drawBlocks;
     }
 
     createNewPiece() {
         this.activeCenterX = 0;
         this.activeCenterY = 4;
         this.rotation = 0;
-        this.drawBlocks = drawBlocks;
     }
 
     tryMoveRight() {
