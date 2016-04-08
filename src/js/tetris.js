@@ -329,7 +329,7 @@ class GameBoard {
             }
             if (this.rotation === 0) {
                 this.putBlock(this.activeCenterX-1,this.activeCenterY-1,new Block("l"));
-                this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("l"));
+                this.putBlock(this.activeCenterX-1,this.activeCenterY,new Block("l"));
                 this.putBlock(this.activeCenterX,this.activeCenterY,new Block("l"));
                 this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("l"));
             } else if (this.rotation === 1) {
