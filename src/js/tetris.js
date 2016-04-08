@@ -357,15 +357,15 @@ class GameBoard {
                 }
             }
             if (this.rotation === 0 || this.rotation == 2) {
-                this.putBlock(this.activeCenterX-1,this.activeCenterY,new Block("i"));
-                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("i"));
-                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("i"));
-                this.putBlock(this.activeCenterX+1,this.activeCenterY+1,new Block("i"));
+                this.putBlock(this.activeCenterX-1,this.activeCenterY,new Block("s"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("s"));
+                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("s"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY+1,new Block("s"));
             } else {
-                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("i"));
-                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("i"));
-                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("i"));
-                this.putBlock(this.activeCenterX+1,this.activeCenterY-1,new Block("i"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("s"));
+                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("s"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("s"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY-1,new Block("s"));
             }
             this.rotation--;
             this.normalizeRotation();
