@@ -102,7 +102,6 @@ $(function () {
     }
 
     function clockTick() {
-        //move active blocks down
         if (!game.checkActive()) {
             // set all blocks as inactive
             game.setAllBlocksInactive();
@@ -113,19 +112,12 @@ $(function () {
         } else {
             game.moveActive();
         }
-//        game.moveRowsDown(17);
         drawBlocks(game.getSlots());
         if (!game.isGameover) {
             setTimeout(clockTick, 100);
         } else {
-            console.log("Game over!");
-//            alert("GAME OVER!");
+            alert("GAME OVER!");
         }
-    }
-
-    function secondTick() {
-        game.moveRowsDown(17);
-        drawBlocks(game.getSlots());
     }
 
     var game = new GameBoard();
@@ -204,7 +196,6 @@ class GameBoard {
                 this.slots[i][j] = new Slot();
             }
         }
-        this.blockIdTracker = 0;
         this.isGameover = false;
         this.activeCenterX = 0;
         this.activeCenterY = 0;
@@ -218,7 +209,6 @@ class GameBoard {
     }
 
     tryMoveRight() {
-        console.log("try move right");
         var currentBlock,
             nextBlock,
             isMovable = true;
@@ -253,7 +243,6 @@ class GameBoard {
     }
 
     tryMoveLeft() {
-        console.log("try move leftt");
         var currentBlock,
             nextBlock,
             isMovable = true;
@@ -309,7 +298,6 @@ class GameBoard {
     }
 
     rotateLeft() {
-        console.log("try rotate left");
         if (this.activeCenterY === 9 || this.activeCenterY === 0) {
             return;
         }
@@ -359,7 +347,6 @@ class GameBoard {
     }
 
     rotateRight() {
-        console.log("try rotate right");
 
     }
 
