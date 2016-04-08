@@ -358,7 +358,7 @@ class GameBoard {
         if (this.checkActive()) {
             this.moveActive();
         }
-        drawBlocks(this.slots);
+        this.drawBlocks(this.slots);
     }
 
     checkActive() {
