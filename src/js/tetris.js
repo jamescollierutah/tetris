@@ -440,7 +440,8 @@ class GameBoard {
     checkActive() {
         var currentBlock,
             nextBlock,
-            isMovable = true;
+            isMovable = true,
+            foundAnActive = false;
         for (var i = 0; i < this.slots.length; i++) {
             for (var j = 0; j < this.slots[i].length; j++) {
                 currentBlock = this.slots[i][j].getSlottedBlock();
@@ -451,6 +452,7 @@ class GameBoard {
                             isMovable = false;
                         } else {
                             //good
+                            foundAnActive = true;
                         }
                     } else {
                         isMovable = false;
@@ -459,7 +461,7 @@ class GameBoard {
             }
         }
 
-        if (!isMovable) {
+        if (!isMovable || !foundAnActive) {
             // piece needs to freeze
             return false;
         } else {
