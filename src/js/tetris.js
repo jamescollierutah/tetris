@@ -334,17 +334,17 @@ class GameBoard {
                 this.putBlock(this.activeCenterX,this.activeCenterY,new Block("j"));
                 this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("j"));
                 this.putBlock(this.activeCenterX+1,this.activeCenterY-1,new Block("j"));
-            } else if (this.rotation === 1{
+            } else if (this.rotation === 1) {
                 this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("j"));
                 this.putBlock(this.activeCenterX+1,this.activeCenterY-1,new Block("j"));
                 this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("j"));
                 this.putBlock(this.activeCenterX+1,this.activeCenterY+1,new Block("j"));
-            } else if (this.rotation === 2{
+            } else if (this.rotation === 2) {
                 this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("j"));
                 this.putBlock(this.activeCenterX,this.activeCenterY,new Block("j"));
                 this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("j"));
                 this.putBlock(this.activeCenterX+1,this.activeCenterY+1,new Block("j"));
-            } else if (this.rotation === 3{
+            } else if (this.rotation === 3) {
                 this.putBlock(this.activeCenterX-1,this.activeCenterY+1,new Block("j"));
                 this.putBlock(this.activeCenterX-1,this.activeCenterY,new Block("j"));
                 this.putBlock(this.activeCenterX,this.activeCenterY,new Block("j"));
