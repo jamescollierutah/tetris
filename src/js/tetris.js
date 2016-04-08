@@ -127,7 +127,7 @@ $(function () {
         }
     }
 
-    var game = new GameBoard();
+    var game = new GameBoard(drawBlocks);
     randomizePieceType();
 
     drawBlocks(game.getSlots());
@@ -195,7 +195,7 @@ class Slot {
 }
 
 class GameBoard {
-    constructor() {
+    constructor(drawBlocks) {
         this.slots = new Array(18);
         for (var i = 0; i < this.slots.length; i++) {
             this.slots[i] = new Array(10);
@@ -213,6 +213,7 @@ class GameBoard {
         this.activeCenterX = 0;
         this.activeCenterY = 4;
         this.rotation = 0;
+        this.drawBlocks = drawBlocks;
     }
 
     tryMoveRight() {
@@ -357,6 +358,7 @@ class GameBoard {
         if (this.checkActive()) {
             this.moveActive();
         }
+        drawBlocks(this.slots);
     }
 
     checkActive() {
