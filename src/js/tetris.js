@@ -248,6 +248,7 @@ class GameBoard {
                 }
             }
         }
+        this.drawBlocks(this.slots);
     }
 
     tryMoveLeft() {
@@ -282,6 +283,7 @@ class GameBoard {
                 }
             }
         }
+        this.drawBlocks(this.slots);
     }
 
     getActivePieceType() {
@@ -351,6 +353,7 @@ class GameBoard {
 
         }
         // replace piece with rotation
+        this.drawBlocks(this.slots);
 
     }
 
