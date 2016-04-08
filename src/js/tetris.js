@@ -370,6 +370,28 @@ class GameBoard {
             this.rotation--;
             this.normalizeRotation();
         } else if (pieceType === "z") {
+            var currentBlock;
+            for (var i = this.slots.length-1; i >= 0; i--) {
+                for (var j = this.slots[i].length-1; j >= 0; j--) {
+                    currentBlock = this.slots[i][j].getSlottedBlock();
+                    if (currentBlock !== null && currentBlock.isActive()) {
+                        this.slots[i][j].setSlottedBlock(null);
+                    }
+                }
+            }
+            if (this.rotation === 0 || this.rotation == 2) {
+                this.putBlock(this.activeCenterX-1,this.activeCenterY+1,new Block("z"));
+                this.putBlock(this.activeCenterX,this.activeCenterY+1,new Block("z"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("z"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("z"));
+            } else {
+                this.putBlock(this.activeCenterX,this.activeCenterY-1,new Block("z"));
+                this.putBlock(this.activeCenterX,this.activeCenterY,new Block("z"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY,new Block("z"));
+                this.putBlock(this.activeCenterX+1,this.activeCenterY+1,new Block("z"));
+            }
+            this.rotation--;
+            this.normalizeRotation();
 
         }
         // replace piece with rotation
